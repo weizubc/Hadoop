@@ -1,2 +1,2 @@
-# Hadoop
-Projects from Udacity Hadoop and Mapreduce Course
+# Intro to Hadoop and MapReduce (Udacity - Cloudera)
+Course exercises.

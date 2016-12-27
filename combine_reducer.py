@@ -1,24 +1,39 @@
 #!/usr/bin/python
-# Here you will be able to combine the values that come from 2 sources
-# Value that starts with A will be the user data
-# Values that start with B will be forum node data
 
 import sys
 
+count = 0
+oldKey = None
+tempAsave = None
+tempBsave = []
 
-outputa={}
-outputb={}
+
 for line in sys.stdin:
-    data = line.strip().split("\t")
-    if data[1]=='"A"':
-        outputa[data[0]]=data[2:]
-    if data[1]=='"B"':
-        outputb[data[0]]=data[2:]
+    data_mapped = line.strip().split("\t")
+    
+    thisKey = data_mapped[0]
+    type = data_mapped[1]
+    rest = "\t".join(data_mapped[2:])
 
-#print outputa,outputb
+    if oldKey and oldKey != thisKey:
+        if count > 1:
+            for row in tempBsave:
+                print row, "\t", oldKey,"\t",tempAsave
+        count = 0
+        tempAsave = None
+        tempBsave = []
 
-for item in outputb:
-    if item in outputa:
-        for i in outputa[item]:
-            outputb[item].append(i)
-        print " ".join(outputb[item])
+    oldKey = thisKey
+    if type == "A":
+        tempAsave = rest
+    else:
+        tempBsave.append(rest)
+    count += 1
+
+
+if oldKey != None:
+    if count > 1:
+        for row in tempBsave:
+            print row, "\t", oldKey,"\t",tempAsave
+
+

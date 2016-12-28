@@ -5,7 +5,7 @@ import operator
 
 count = 0
 oldKey = None
-top10 = {}
+top10 = []
 lowest_count = 0
 
 for line in sys.stdin:
@@ -18,14 +18,13 @@ for line in sys.stdin:
 
     if oldKey and oldKey != thisKey:
         if len(top10) < 10:
-            top10[oldKey] = count
-            lowest_count = min(top10.values())
+            top10.append((oldKey,count))
+            lowest_count = min(top10,key=lambda x:x[1])[1]
         elif  count > lowest_count :
-             top10[oldKey] = count
-             sorted_top10 = sorted(top10.items(),key=operator.itemgetter(1),reverse=True)
-             sorted_top10.pop()
-             top10 = dict(sorted_top10)
-             lowest_count = sorted_top10[-1][1]
+             top10.append((oldKey,count))
+             top10.sort(key=lambda x:x[1],reverse=True)
+             top10.pop()
+             lowest_count = top10[-1][1]
         count = 0
     
     oldKey = thisKey
@@ -33,13 +32,11 @@ for line in sys.stdin:
 
 if oldKey != None:
     if len(top10) < 10:
-        top10[oldKey] = count
-        sorted_top10 = sorted(top10.items(),key=operator.itemgetter(1),reverse=True)
+        top10.append((oldKey,count))
     elif count > lowest_count :
-        top10[oldKey] = count
-        sorted_top10 = sorted(top10.items(),key=operator.itemgetter(1),reverse=True)
-        sorted_top10.pop()
-        top10 = dict(sorted_top10)
+        top10.append((oldKey,count))
+        top10.sort(key=lambda x:x[1],reverse=True)
+        top10.pop()
 
-for key, value in sorted_top10:
+for key, value in top10:
     print "{0}\t{1}".format(key,value)

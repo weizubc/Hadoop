@@ -20,11 +20,11 @@ for line in sys.stdin:
         if len(top10) < 10:
             top10.append((oldKey,count))
             lowest_count = min(top10,key=lambda x:x[1])[1]
-        elif  count > lowest_count :
-             top10.append((oldKey,count))
-             top10.sort(key=lambda x:x[1],reverse=True)
-             top10.pop()
-             lowest_count = top10[-1][1]
+        elif count > lowest_count :
+            top10.append((oldKey,count))
+            top10.sort(key=lambda x:x[1],reverse=True)
+            top10.pop()
+            lowest_count = top10[-1][1]
         count = 0
     
     oldKey = thisKey

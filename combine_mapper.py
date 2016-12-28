@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+#Combine datasets.
 
 import sys
 import csv

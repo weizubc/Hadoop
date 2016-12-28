@@ -1,4 +1,7 @@
 #!/usr/bin/python
+
+#Examine if there is a correlation between the length of a post and the length of answers.
+
 import sys
 import csv
 from datetime import datetime

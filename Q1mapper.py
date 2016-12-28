@@ -1,4 +1,7 @@
 #!/usr/bin/python
+
+#Find for each id what is the hour during which the id has posted the most posts.
+
 import sys
 import csv
 from datetime import datetime

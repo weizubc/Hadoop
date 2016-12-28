@@ -1,4 +1,7 @@
 #!/usr/bin/python
+
+#Output Top 10 tags used in posts.
+
 import sys
 import csv
 from datetime import datetime

@@ -1,4 +1,7 @@
 #!/usr/bin/python
+
+#Find the counts of each word used on forums.
+
 import sys
 import csv
 import re

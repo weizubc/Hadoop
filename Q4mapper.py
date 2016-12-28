@@ -1,4 +1,7 @@
 #!/usr/bin/python
+
+#Find for each forum thread the list of ids that have posted there.
+
 import sys
 import csv
 from datetime import datetime

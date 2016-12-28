@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+#Find the number of hits to the site made by each IP.
+
 import sys
 
 for line in sys.stdin:

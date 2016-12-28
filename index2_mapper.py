@@ -1,4 +1,7 @@
 #!/usr/bin/python
+
+#Creates an inverted index of all words that can be find in the body of a forum post and node id they can be found in.
+
 import sys
 import csv
 import re

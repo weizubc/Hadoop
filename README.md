@@ -5,4 +5,4 @@ The projects involve using MapReduce/Hadoop to process the Udacity forum data an
 * Output Top 10 tags used in posts.
 * Find for each forum thread the list of ids that have posted there.
 * Creates an inverted index of all words that can be find in the body of a forum post and node id they can be found in.
-* Combine Datasets 
+* Combine datasets. 
